@@ -4,19 +4,19 @@
 %define	devname	%mklibname %{name} -d
 
 ### FIXME ###
-# From 2.3.2 fluidsynth introduce some changes to pkgconfig and cmake mechanism and looks like that cause problems with tests.
+# From 2.3.2 fluidsynth introduce some changes to pkgconfig and cmake mechanism and looks like that cause problems.
 # Nothing provides cmake(oboe), cmake(systemd), cmake(readline), cmake(jack) and few others.
 # To workaround this, lets disable bogus cmake requires. Last good version was 2.3.1. #angry p.
 %global	__cmake_requires %{nil}
 
 Summary:	Realtime, SoundFont-based synthesizer
 Name:	fluidsynth
-Version:	2.5.4
+Version:	2.5.7
 Release:	1
 License:	LGPLv2+
 Group:	Sound
 Url:	https://www.fluidsynth.org/
-# Sub-modules are a pain: make a tarball from the commit of 2.5.4 (57c19522838331da5aeae95433b0d776734907d8)
+# Sub-modules are a pain: make a tarball from the commit of 2.5.7 (3ede3f7c8ffc5d16e5d28f416cbfd71f3ad2b814)
 #Source0:	https://github.com/FluidSynth/fluidsynth/archive/v%%{version}/%%{name}-%%{version}.tar.gz
 Source0:	%{name}-%{version}.tar.xz
 BuildRequires:	cmake >= 3.13
