@@ -4,21 +4,22 @@
 %define	devname	%mklibname %{name} -d
 
 ### FIXME ###
-# From 2.3.2 fluidsynth introduce some changes to pkgconfig and cmake mechanism and looks like that cause problems.
+# From 2.3.2 fluidsynth introduced some changes to pkgconfig and cmake mechanism and looks like that causes problems.
 # Nothing provides cmake(oboe), cmake(systemd), cmake(readline), cmake(jack) and few others.
 # To workaround this, lets disable bogus cmake requires. Last good version was 2.3.1. #angry p.
 %global	__cmake_requires %{nil}
 
-Summary:	Realtime, SoundFont-based synthesizer
+Summary:	Real time, SoundFont-based synthesizer
 Name:	fluidsynth
-Version:	2.5.7
+Version:	2.6.2
 Release:	1
-License:	LGPLv2+
+License:	LGPL-2.0-or-later
 Group:	Sound
 Url:	https://www.fluidsynth.org/
-# Sub-modules are a pain: make a tarball from the commit of 2.5.7 (3ede3f7c8ffc5d16e5d28f416cbfd71f3ad2b814)
+# Sub-modules are a pain: make a tarball from the commit of 2.6.2 (5a170715828ab30dd1519e003f36bc00594468c1)
 #Source0:	https://github.com/FluidSynth/fluidsynth/archive/v%%{version}/%%{name}-%%{version}.tar.gz
 Source0:	%{name}-%{version}.tar.xz
+Patch0:	fluidsynth-2.6.2-fix-missing-header.patch
 BuildRequires:	cmake >= 3.13
 BuildRequires:	doxygen
 BuildRequires:	ninja
